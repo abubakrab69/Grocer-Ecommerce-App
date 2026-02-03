@@ -2,6 +2,7 @@ import 'package:ecommerceapp/controllers/theme_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/widgets/category_chip.dart';
 import 'package:ecommerceapp/widgets/custom_search_bar.dart';
+import 'package:ecommerceapp/widgets/product_grid.dart';
 import 'package:ecommerceapp/widgets/sale_banners.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Padding(
-              padding: .all(13),
+              padding: .all(10),
               child: Row(
                 mainAxisAlignment: .spaceBetween,
                 children: [
@@ -101,6 +102,32 @@ class _HomeScreenState extends State<HomeScreen> {
             const CategoryChip(),
 
             const SaleBanners(),
+
+            Padding(
+              padding: const .symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: .spaceBetween,
+                crossAxisAlignment: .center,
+                children: [
+                  Text(
+                    'Popular products',
+                    style: GoogleFonts.poppins(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: GoogleFonts.poppins(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const Expanded(child: ProductGrid()),
           ],
         ),
       ),

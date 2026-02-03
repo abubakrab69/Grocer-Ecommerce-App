@@ -25,6 +25,7 @@ final List<Product> products = [
     price: 50,
     imageUrl: 'assets/images/apple.png',
     discription: 'this is an apple',
+    oldPrice: 100,
   ),
   Product(
     name: 'Banana',
@@ -32,6 +33,7 @@ final List<Product> products = [
     price: 27,
     imageUrl: 'assets/images/banana.png',
     discription: 'this is banana',
+    oldPrice: 32,
   ),
   Product(
     name: 'Pinapple',
@@ -39,5 +41,6 @@ final List<Product> products = [
     price: 20,
     imageUrl: 'assets/images/pinapple.png',
     discription: 'this is an Pinapple',
+    oldPrice: 25,
   ),
 ];

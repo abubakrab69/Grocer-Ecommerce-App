@@ -9,10 +9,10 @@ class SaleBanners extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: .all(15),
-      margin: .all(10),
+      margin: .symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: AppTheme.light.primaryColor,
-        borderRadius: .circular(23),
+        borderRadius: .circular(20),
       ),
       child: Row(
         mainAxisAlignment: .spaceBetween,

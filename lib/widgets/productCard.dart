@@ -2,6 +2,7 @@ import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Productcard extends StatelessWidget {
   final Product product;
@@ -16,28 +17,68 @@ class Productcard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: isDark ? Colors.grey[900] : Colors.grey[100],
+        boxShadow: [
+          BoxShadow(
+            color: isDark ? Colors.grey[700]! : Colors.grey[200]!,
+            spreadRadius: 0.3,
+            blurRadius: 0.5,
+          ),
+        ],
       ),
       child: Column(
         children: [
           Stack(
             children: [
-              Image.asset(''),
+              Container(
+                width: double.infinity,
+                height: 110,
+                child: Image.asset(product.imageUrl, fit: BoxFit.contain),
+              ),
               Positioned(
                 top: 10,
                 left: 5,
                 child: Container(
-                  padding: .all(9),
+                  width: 65,
+                  height: 28,
                   decoration: BoxDecoration(
                     color: AppTheme.light.primaryColor,
-                    borderRadius: .circular(50),
+                    borderRadius: .circular(8),
                   ),
-                  child: Text('isfavourite'),
+                  child: Center(
+                    child: Text(
+                      '${calculateDiscount(product.price, product.oldPrice!)}% OFF',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
+          Text(
+            product.name,
+            style: GoogleFonts.poppins(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(product.category, style: GoogleFonts.poppins(fontSize: 13)),
+          Text(
+            '\$${product.price.toStringAsFixed(2)}',
+            style: GoogleFonts.poppins(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  int calculateDiscount(double currentPrice, double oldPrice) {
+    return (((oldPrice - currentPrice) / oldPrice) * 100).round();
   }
 }
