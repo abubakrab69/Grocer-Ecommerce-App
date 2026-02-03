@@ -25,55 +25,72 @@ class Productcard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 110,
-                child: Image.asset(product.imageUrl, fit: BoxFit.contain),
-              ),
-              Positioned(
-                top: 10,
-                left: 5,
-                child: Container(
-                  width: 65,
-                  height: 28,
-                  decoration: BoxDecoration(
-                    color: AppTheme.light.primaryColor,
-                    borderRadius: .circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      '${calculateDiscount(product.price, product.oldPrice!)}% OFF',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: .start,
+
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 110,
+                  child: Image.asset(product.imageUrl, fit: BoxFit.contain),
+                ),
+                Positioned(
+                  top: 10,
+                  left: 5,
+                  child: Container(
+                    width: 65,
+                    height: 28,
+                    decoration: BoxDecoration(
+                      color: AppTheme.light.primaryColor,
+                      borderRadius: .circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '${calculateDiscount(product.price, product.oldPrice!)}% OFF',
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
+              ],
+            ),
+            Text(
+              product.name,
+              style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
-            ],
-          ),
-          Text(
-            product.name,
-            style: GoogleFonts.poppins(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
             ),
-          ),
-          Text(product.category, style: GoogleFonts.poppins(fontSize: 13)),
-          Text(
-            '\$${product.price.toStringAsFixed(2)}',
-            style: GoogleFonts.poppins(
-              fontSize: 17,
-              fontWeight: FontWeight.bold,
+            Text(product.category, style: GoogleFonts.poppins(fontSize: 13)),
+            Row(
+              children: [
+                Text(
+                  '\$${product.price.toStringAsFixed(2)}',
+                  style: GoogleFonts.poppins(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  '\$${product.oldPrice}',
+                  style: TextStyle(
+                    decoration: TextDecoration.lineThrough,
+                    color: isDark ? Colors.grey : Colors.grey[800],
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

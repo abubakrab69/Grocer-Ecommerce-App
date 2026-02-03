@@ -43,4 +43,12 @@ final List<Product> products = [
     discription: 'this is an Pinapple',
     oldPrice: 25,
   ),
+  Product(
+    name: 'vegetable',
+    category: 'vegetable',
+    price: 80,
+    imageUrl: 'assets/images/vegetable.png',
+    discription: 'this is an vegetable',
+    oldPrice: 105,
+  ),
 ];

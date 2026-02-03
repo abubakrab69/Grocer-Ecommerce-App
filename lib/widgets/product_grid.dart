@@ -1,6 +1,9 @@
 import 'package:ecommerceapp/models/product_model.dart';
+import 'package:ecommerceapp/view/category_detail_screen.dart';
 import 'package:ecommerceapp/widgets/productCard.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/instance_manager.dart';
 
 class ProductGrid extends StatelessWidget {
   const ProductGrid({super.key});
@@ -14,13 +17,15 @@ class ProductGrid extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
-          childAspectRatio: 0.99,
+          childAspectRatio: 0.94,
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {
           final product = products[index];
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Get.to(CategoryDetailScreen(product: product));
+            },
             child: Productcard(product: product),
           );
         },

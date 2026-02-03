@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controllers/theme_controller.dart';
+import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/widgets/category_chip.dart';
 import 'package:ecommerceapp/widgets/custom_search_bar.dart';
@@ -34,8 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         CircleAvatar(
                           radius: 23,
-                          backgroundImage: AssetImage(
-                            'assets/images/app_logo.png',
+                          backgroundImage: NetworkImage(
+                            'https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?semt=ais_hybrid&w=740&q=80',
                           ),
                         ),
                         SizedBox(width: 13),
