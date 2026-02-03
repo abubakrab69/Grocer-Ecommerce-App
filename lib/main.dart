@@ -1,0 +1,33 @@
+import 'package:ecommerceapp/controllers/auth_controller.dart';
+import 'package:ecommerceapp/controllers/theme_controller.dart';
+import 'package:ecommerceapp/routes/routes.dart';
+import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/splash/screens/splash_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+void main() async {
+  await GetStorage();
+  Get.put(ThemeController());
+  Get.put(AuthController());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find<ThemeController>();
+    return GetMaterialApp(
+      title: 'Fashion Store',
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: themeController.theme,
+      debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fade,
+      home: SplashScreen(),
+    );
+  }
+}
