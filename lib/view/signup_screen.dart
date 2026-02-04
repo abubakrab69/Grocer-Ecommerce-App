@@ -57,7 +57,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: isdark ? Colors.grey : Colors.grey,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 17),
@@ -112,7 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
               SizedBox(height: 17),
               CutomTextfield(
-                hintText: 'Confirm Password',
+                hintText: 'Enter your Confirm Password',
                 labelText: 'Confirm Password',
                 isPassword: true,
                 preficIcon: Icons.lock_outline,

@@ -72,7 +72,7 @@ class _SigninscreenState extends State<Signinscreen> {
               ),
               SizedBox(height: 17),
               CutomTextfield(
-                hintText: 'Password',
+                hintText: 'Enter your Password',
                 labelText: 'Password',
                 isPassword: true,
                 preficIcon: Icons.lock_outline,
