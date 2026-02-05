@@ -15,7 +15,7 @@ class Productcard extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(maxWidth: screenWidth * 0.9),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(14),
         color: isDark ? Colors.grey[900] : Colors.grey[100],
         boxShadow: [
           BoxShadow(

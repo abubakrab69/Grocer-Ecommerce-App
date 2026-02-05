@@ -1,5 +1,7 @@
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SaleBanners extends StatelessWidget {
@@ -8,7 +10,7 @@ class SaleBanners extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: .all(15),
+      padding: .symmetric(horizontal: 15, vertical: 9),
       margin: .symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: AppTheme.light.primaryColor,
@@ -33,15 +35,22 @@ class SaleBanners extends StatelessWidget {
                 ),
               ),
               Text(
-                'upto 50%',
+                'upto 40%',
                 style: GoogleFonts.poppins(color: Colors.white, fontSize: 20),
               ),
             ],
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.snackbar(
+                'Implementation Error',
+                'There is no implementation',
+                snackPosition: SnackPosition.BOTTOM,
+              );
+            },
             child: Container(
-              padding: .all(10),
+              padding: .symmetric(vertical: 10, horizontal: 16),
+
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: .circular(30),

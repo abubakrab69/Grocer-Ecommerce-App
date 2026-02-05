@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {},
                         icon: Badge.count(
                           count: 199,
-                          child: Icon(Icons.notifications_none_rounded),
+                          child: Icon(Icons.shopping_cart_outlined),
                         ),
                       ),
                       IconButton(
@@ -101,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const CustomSearchBar(),
 
             const CategoryChip(),
+            SizedBox(height: 10),
 
             const SaleBanners(),
 

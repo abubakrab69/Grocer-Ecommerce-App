@@ -1,6 +1,8 @@
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -43,7 +45,13 @@ class CategoryDetailScreen extends StatelessWidget {
                 ),
                 Positioned(
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.snackbar(
+                        'unimplementation error',
+                        'unimplementation',
+                        snackPosition: SnackPosition.BOTTOM,
+                      );
+                    },
                     icon: Icon(
                       Icons.favorite_outline_rounded,
                       color: isdark ? Colors.white : Colors.black,
