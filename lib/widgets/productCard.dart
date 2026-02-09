@@ -29,7 +29,6 @@ class Productcard extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: .start,
-
           children: [
             Stack(
               children: [
@@ -39,10 +38,10 @@ class Productcard extends StatelessWidget {
                   child: Image.asset(product.imageUrl, fit: BoxFit.contain),
                 ),
                 Positioned(
-                  top: 10,
+                  top: 5,
                   left: 5,
                   child: Container(
-                    width: 65,
+                    width: 67,
                     height: 28,
                     decoration: BoxDecoration(
                       color: AppTheme.light.primaryColor,

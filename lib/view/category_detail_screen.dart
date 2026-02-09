@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/models/product_model.dart';
+import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -47,7 +48,7 @@ class CategoryDetailScreen extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {
                       Get.snackbar(
-                        'unimplementation error',
+                        'Unimplementation error',
                         'unimplementation',
                         snackPosition: SnackPosition.BOTTOM,
                       );
@@ -100,7 +101,7 @@ class CategoryDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+            SizedBox(height: 10),
             Padding(
               padding: .symmetric(horizontal: 14),
               child: Row(
@@ -108,7 +109,7 @@ class CategoryDetailScreen extends StatelessWidget {
                   Text(
                     'Select Quantity',
                     style: GoogleFonts.poppins(
-                      fontSize: 18,
+                      fontSize: 15,
                       color: isdark ? Colors.grey[300] : Colors.grey[900],
                     ),
                   ),
@@ -258,6 +259,43 @@ class CategoryDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+
+      // bottom but now and add to cart buttons
+      bottomNavigationBar: SafeArea(
+        child: Row(
+          children: [
+            SizedBox(width: 7),
+            Expanded(
+              child: OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  'Add to cart',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: isdark ? Colors.white : Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 7),
+            Expanded(
+              child: OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  'Buy Now',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: AppTheme.light.primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 7),
           ],
         ),
       ),

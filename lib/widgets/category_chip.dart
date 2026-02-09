@@ -48,7 +48,7 @@ class _CategoryChipState extends State<CategoryChip> {
                 },
 
                 selectedColor: AppTheme.light.primaryColor,
-                backgroundColor: isdark ? Colors.grey[800] : Colors.grey[400],
+                backgroundColor: isdark ? Colors.grey[800] : Colors.grey[200],
                 shape: RoundedRectangleBorder(borderRadius: .circular(50)),
                 elevation: selectedIndex == index ? 2 : 1,
                 pressElevation: 0,
