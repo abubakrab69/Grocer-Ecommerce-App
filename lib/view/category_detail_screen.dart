@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
@@ -116,120 +117,23 @@ class CategoryDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Row(
-                children: [
-                  Container(
-                    padding: .all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: .circular(3),
-                      border: BoxBorder.all(
-                        width: 1,
-                        color: isdark ? Colors.grey[900]! : Colors.grey[400]!,
-                      ),
+            SizedBox(height: 5),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: ['1KG', '2KG', '3KG', '4KG', '5KG']
+                  .map(
+                    (category) => FilterChip(
+                      label: Text(category),
+                      selected: category == '1KG',
+                      onSelected: (selected) {},
+                      backgroundColor: AppTheme.light.cardColor,
+                      selectedColor: AppTheme.light.primaryColor,
                     ),
-                    child: Center(
-                      child: Text(
-                        '1KG',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    padding: .all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: .circular(3),
-                      border: BoxBorder.all(
-                        width: 1,
-                        color: isdark ? Colors.grey[900]! : Colors.grey[400]!,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '2KG',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    padding: .all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: .circular(3),
-                      border: BoxBorder.all(
-                        width: 1,
-                        color: isdark ? Colors.grey[900]! : Colors.grey[400]!,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '3KG',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    padding: .all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: .circular(3),
-                      border: BoxBorder.all(
-                        width: 1,
-                        color: isdark ? Colors.grey[900]! : Colors.grey[400]!,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '4KG',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Container(
-                    padding: .all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: .circular(3),
-                      border: BoxBorder.all(
-                        width: 1,
-                        color: isdark ? Colors.grey[900]! : Colors.grey[400]!,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '5KG',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: isdark ? Colors.white : Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                ],
-              ),
+                  )
+                  .toList(),
             ),
-
+            SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Row(
@@ -263,45 +167,74 @@ class CategoryDetailScreen extends StatelessWidget {
         ),
       ),
 
-      // bottom but now and add to cart buttons
+      // bottom (buy now and add to cart) buttons
       bottomNavigationBar: SafeArea(
         child: Row(
+          mainAxisAlignment: .spaceEvenly,
           children: [
-            SizedBox(width: 7),
+            SizedBox(width: 10),
             Expanded(
-              child: OutlinedButton(
-                onPressed: () {},
-                child: Text(
-                  'Add to cart',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: isdark ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: .circular(50),
+                    border: BoxBorder.all(
+                      width: 2.5,
+                      color: isdark ? Colors.white : Colors.black,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Add to Cart',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: isdark ? Colors.white : Colors.black,
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-            SizedBox(width: 7),
+            SizedBox(width: 10),
             Expanded(
-              child: OutlinedButton(
-                onPressed: () {},
-                child: Text(
-                  'Buy Now',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
+              child: InkWell(
+                onTap: () {
+                  Get.snackbar(
+                    'Added to cart',
+                    'added to cart',
+                    backgroundColor: Colors.green,
+                    colorText: Colors.white,
+                  );
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
                     color: AppTheme.light.primaryColor,
-                    fontWeight: FontWeight.bold,
+                    borderRadius: .circular(50),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Add to Cart',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-            SizedBox(width: 7),
+            SizedBox(width: 10),
           ],
         ),
       ),
     );
   }
 
+  // share product logic code
   Future<void> _shareProducts(
     BuildContext context,
     String productName,

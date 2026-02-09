@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/forget_password.dart';
+import 'package:ecommerceapp/view/home/screens/home_screen.dart';
 import 'package:ecommerceapp/view/mainscreen.dart';
 import 'package:ecommerceapp/view/signup_screen.dart';
 import 'package:ecommerceapp/widgets/cutom_textfield.dart';

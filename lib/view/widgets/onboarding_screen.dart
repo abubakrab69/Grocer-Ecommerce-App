@@ -107,7 +107,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             top: 25,
             right: 16,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(Signinscreen());
+              },
               child: Text(
                 'Skip',
                 style: GoogleFonts.poppins(

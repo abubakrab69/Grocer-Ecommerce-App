@@ -60,7 +60,7 @@ class _CategoryChipState extends State<CategoryChip> {
                       ? Colors.transparent
                       : isdark
                       ? Colors.grey[400]!
-                      : Colors.grey[900]!,
+                      : Colors.grey[400]!,
                 ),
               ),
             ),

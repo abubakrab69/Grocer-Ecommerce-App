@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeController themeController = Get.find<ThemeController>();
     return GetMaterialApp(
-      title: 'Fashion Store',
+      title: 'Grocer Store',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: themeController.theme,
