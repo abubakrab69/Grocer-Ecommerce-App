@@ -65,8 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-
-                  /// Icons
+                  // navbar icons
                   Row(
                     children: [
                       InkWell(
@@ -74,20 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           Get.to(MyCartScreen());
                         },
                         child: Badge.count(
-                          count: 3,
+                          count: 0,
                           child: Icon(Icons.shopping_cart_outlined),
                         ),
                       ),
                       SizedBox(width: 10),
-                      Badge.count(count: 3, child: Icon(CupertinoIcons.bell)),
+                      Badge.count(count: 0, child: Icon(CupertinoIcons.bell)),
                       IconButton(
                         onPressed: () {
                           themeController.toggleTheme();
                         },
                         icon: Icon(
-                          isdark
-                              ? Icons.light_mode
-                              : Icons.nightlight_round_outlined,
+                          isdark ? Icons.light_mode : Icons.nightlight_outlined,
                         ),
                       ),
                     ],
@@ -119,7 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text(
                       'See All',
-                      style: GoogleFonts.poppins(fontSize: 15),
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
