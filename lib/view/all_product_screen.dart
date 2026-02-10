@@ -11,7 +11,7 @@ class AllProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = AppTheme.light.brightness == Brightness.dark;
+    final isdark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,7 +23,7 @@ class AllProductScreen extends StatelessWidget {
         title: Text(
           'All Products',
           style: GoogleFonts.poppins(
-            fontSize: 22,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: isdark ? Colors.white : Colors.black,
           ),

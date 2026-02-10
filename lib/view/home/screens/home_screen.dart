@@ -2,6 +2,7 @@ import 'package:ecommerceapp/controllers/theme_controller.dart';
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/all_product_screen.dart';
+import 'package:ecommerceapp/view/my_cart_screen.dart';
 import 'package:ecommerceapp/widgets/category_chip.dart';
 import 'package:ecommerceapp/widgets/custom_search_bar.dart';
 import 'package:ecommerceapp/widgets/product_grid.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
-
+    ThemeController themeController = Get.put(ThemeController());
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
@@ -68,18 +69,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   /// Icons
                   Row(
                     children: [
-                      Badge.count(
-                        count: 3,
-                        child: Icon(Icons.shopping_cart_outlined),
+                      InkWell(
+                        onTap: () {
+                          Get.to(MyCartScreen());
+                        },
+                        child: Badge.count(
+                          count: 3,
+                          child: Icon(Icons.shopping_cart_outlined),
+                        ),
                       ),
                       SizedBox(width: 10),
                       Badge.count(count: 3, child: Icon(CupertinoIcons.bell)),
-                      SizedBox(width: 10),
-                      Badge.count(
-                        count: 3,
-                        child: Icon(Icons.shopping_cart_outlined),
+                      IconButton(
+                        onPressed: () {
+                          themeController.toggleTheme();
+                        },
+                        icon: Icon(
+                          isdark
+                              ? Icons.light_mode
+                              : Icons.nightlight_round_outlined,
+                        ),
                       ),
-                      SizedBox(width: 10),
                     ],
                   ),
                 ],

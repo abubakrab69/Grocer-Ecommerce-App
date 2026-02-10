@@ -21,16 +21,22 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
         currentIndex: navigationController.currentIndex.value,
         onTap: navigationController.changeIndex,
         items: [
-          BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home_outlined),
+          ),
           BottomNavigationBarItem(
             label: 'Shopping',
             icon: Icon(Icons.shopping_bag),
           ),
           BottomNavigationBarItem(
             label: 'Cart',
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.favorite_outline_rounded),
           ),
-          BottomNavigationBarItem(label: 'Account', icon: Icon(Icons.person)),
+          BottomNavigationBarItem(
+            label: 'Account',
+            icon: Icon(Icons.person_outline_rounded),
+          ),
         ],
       );
     });

@@ -21,18 +21,17 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            /// Header
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween, // ✅ FIXED (. removed)
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Shopping',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
+                      color: isdark ? Colors.white : Colors.black,
                     ),
                   ),
                   Row(
@@ -46,7 +45,6 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
               ),
             ),
 
-            /// ✅ VERY IMPORTANT FIX
             Expanded(
               child: Column(
                 children: const [
