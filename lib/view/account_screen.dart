@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/setting_screen.dart';
 import 'package:ecommerceapp/view/signinscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,9 @@ class _AccountScreenState extends State<AccountScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(SettingScreen());
+            },
             icon: Icon(
               CupertinoIcons.settings,
               color: isdark ? Colors.white : Colors.black,
@@ -136,12 +139,7 @@ class _AccountScreenState extends State<AccountScreen> {
             borderRadius: .circular(10),
           ),
           child: ListTile(
-            leading: Icon(
-              item['icon'] as IconData?,
-              color: isdark
-                  ? AppTheme.light.primaryColor
-                  : AppTheme.light.primaryColor,
-            ),
+            leading: Icon(item['icon'] as IconData?, color: Colors.blue),
             title: Text(
               item['title'] as String,
               style: GoogleFonts.poppins(
@@ -152,7 +150,7 @@ class _AccountScreenState extends State<AccountScreen> {
             trailing: Icon(
               Icons.arrow_forward_ios_rounded,
               size: 16,
-              color: AppTheme.light.primaryColor,
+              color: Colors.blue,
             ),
             onTap: () {
               if (item['title'] == 'Logout') {
@@ -181,11 +179,11 @@ class _AccountScreenState extends State<AccountScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(45),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20), // blur strength
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
               decoration: BoxDecoration(
                 color: isdark
                     ? Colors.white.withOpacity(0.08)
@@ -219,18 +217,16 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                color: Colors.blue,
-                                width: 1.5,
-                              ),
+                              border: Border.all(color: Colors.blue, width: 2),
                             ),
                             child: Center(
                               child: Text(
                                 'Cancel',
                                 style: GoogleFonts.poppins(
                                   fontSize: 16,
-                                  color: Colors.blue,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -238,9 +234,11 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                         ),
                       ),
-
-                      const SizedBox(width: 10),
-
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
                       Expanded(
                         child: InkWell(
                           borderRadius: BorderRadius.circular(50),
@@ -260,17 +258,21 @@ class _AccountScreenState extends State<AccountScreen> {
                             decoration: BoxDecoration(
                               border: BoxBorder.all(
                                 width: 2,
-                                color: Colors.blue,
+                                color: isdark
+                                    ? Colors.grey[800]!
+                                    : Colors.grey[400]!,
                               ),
                               borderRadius: BorderRadius.circular(50),
-                              color: Colors.blue,
+                              color: isdark
+                                  ? Colors.grey[800]
+                                  : Colors.grey[400],
                             ),
                             child: Center(
                               child: Text(
-                                'Done',
+                                'Logout',
                                 style: GoogleFonts.poppins(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: Colors.red,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
