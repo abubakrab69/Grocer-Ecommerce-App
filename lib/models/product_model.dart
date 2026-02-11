@@ -26,6 +26,7 @@ final List<Product> products = [
     imageUrl: 'assets/images/apple.png',
     discription: 'this is an apple',
     oldPrice: 100,
+    isFavourite: true,
   ),
   Product(
     name: 'Banana',
@@ -42,6 +43,7 @@ final List<Product> products = [
     imageUrl: 'assets/images/pinapple.png',
     discription: 'this is Pinapple',
     oldPrice: 25,
+    isFavourite: true,
   ),
   Product(
     name: 'vegetable',
@@ -50,7 +52,6 @@ final List<Product> products = [
     imageUrl: 'assets/images/vegetable.png',
     discription: 'this is vegetable',
     oldPrice: 105,
-    isFavourite: true,
   ),
   Product(
     name: 'vegetable',

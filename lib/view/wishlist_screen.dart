@@ -53,7 +53,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
     final favouritProduct = products.where((p) => p.isFavourite).length;
 
     return Container(
-      padding: const .all(10),
+      padding: const .all(16),
       decoration: BoxDecoration(
         color: isdark ? Colors.grey[800] : Colors.grey[200],
       ),
@@ -110,10 +110,17 @@ class _WishlistScreenState extends State<WishlistScreen> {
     final isdark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
+      margin: .symmetric(vertical: 5),
+      padding: .all(9),
       width: double.infinity,
       height: 100,
+      decoration: BoxDecoration(
+        color: isdark ? Colors.grey[900] : Colors.grey[200],
+        borderRadius: .circular(10),
+      ),
       child: Row(
         mainAxisAlignment: .spaceBetween,
+        crossAxisAlignment: .center,
         children: [
           Container(
             width: 90,
@@ -138,7 +145,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                     style: GoogleFonts.poppins(
                       fontSize: 17,
                       fontWeight: FontWeight.w500,
-                      color: isdark ? Colors.grey[600] : Colors.grey[500],
+                      color: isdark ? Colors.white : Colors.black,
                     ),
                   ),
                   Text(
@@ -150,7 +157,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                     ),
                   ),
                   Text(
-                    product.price.toStringAsFixed(2),
+                    '\$${product.price.toStringAsFixed(2)}',
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
