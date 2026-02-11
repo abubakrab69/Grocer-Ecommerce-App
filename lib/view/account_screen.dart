@@ -25,7 +25,7 @@ class _AccountScreenState extends State<AccountScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          'Account',
+          'My Account',
           style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -98,19 +98,14 @@ class _AccountScreenState extends State<AccountScreen> {
               width: 130,
 
               decoration: BoxDecoration(
-                border: BoxBorder.all(
-                  width: 1,
-                  color: isdark ? Colors.white : Colors.black,
-                ),
+                border: BoxBorder.all(width: 1.5, color: Colors.blue),
                 borderRadius: .circular(9),
                 color: Colors.transparent,
               ),
               child: Center(
                 child: Text(
                   'Edit Profile',
-                  style: GoogleFonts.poppins(
-                    color: isdark ? Colors.white : Colors.black,
-                  ),
+                  style: GoogleFonts.poppins(color: Colors.blue),
                 ),
               ),
             ),

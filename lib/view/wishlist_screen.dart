@@ -55,7 +55,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
     return Container(
       padding: const .all(16),
       decoration: BoxDecoration(
-        color: isdark ? Colors.grey[800] : Colors.grey[200],
+        color: isdark ? Colors.grey[900] : Colors.grey[200],
       ),
       child: Row(
         mainAxisAlignment: .spaceBetween,

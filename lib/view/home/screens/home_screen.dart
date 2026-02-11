@@ -85,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         icon: Icon(
                           isdark ? Icons.light_mode : Icons.nightlight_outlined,
+                          color: isdark ? Colors.yellow : Colors.black,
                         ),
                       ),
                     ],

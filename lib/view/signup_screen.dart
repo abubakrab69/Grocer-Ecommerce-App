@@ -16,8 +16,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final isdark = AppTheme.light.brightness == Brightness.dark;
-
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -31,6 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -60,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 17),
+              SizedBox(height: 25),
               CutomTextfield(
                 hintText: 'Enter your Name',
                 labelText: 'Name',
@@ -129,7 +128,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
               ),
 
-              SizedBox(height: 35),
+              SizedBox(height: 39),
 
               InkWell(
                 onTap: () {

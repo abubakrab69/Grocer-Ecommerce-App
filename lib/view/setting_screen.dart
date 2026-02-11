@@ -30,6 +30,20 @@ class SettingScreen extends StatelessWidget {
         child: Column(
           children: [
             buildSection(context, 'Appearence', [buildThemeToggle(context)]),
+            buildSection(context, 'Notification', [
+              buildSwitchTile(
+                context,
+                'Push Notification',
+                'Recieve push notification about orders and promotions',
+                false,
+              ),
+              buildSwitchTile(
+                context,
+                'Email Notification',
+                'Recieve Email notification and others',
+                true,
+              ),
+            ]),
           ],
         ),
       ),
@@ -39,6 +53,7 @@ class SettingScreen extends StatelessWidget {
   Widget buildSection(BuildContext context, title, List<Widget> childern) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     return Column(
+      crossAxisAlignment: .start,
       children: [
         Padding(
           padding: .fromLTRB(24, 24, 24, 8),
@@ -50,6 +65,7 @@ class SettingScreen extends StatelessWidget {
             ),
           ),
         ),
+        ...childern,
       ],
     );
   }
@@ -61,16 +77,18 @@ class SettingScreen extends StatelessWidget {
         margin: .all(7),
         padding: .all(5),
         decoration: BoxDecoration(
-          color: isdark ? Colors.grey[200] : Colors.grey[900],
+          color: isdark ? Colors.grey[900] : Colors.grey[200],
           borderRadius: .circular(50),
         ),
         child: ListTile(
           leading: Icon(
             isdark ? Icons.nightlight_round_sharp : Icons.light_mode_sharp,
-            color: isdark ? Colors.white : Colors.yellow,
+            color: isdark
+                ? Colors.white
+                : const Color.fromARGB(255, 190, 124, 0),
           ),
           title: Text(
-            'Light Mode',
+            isdark ? 'Dark Mode' : 'Light Mode',
             style: GoogleFonts.poppins(
               fontSize: 17,
               color: isdark ? Colors.white : Colors.black,
@@ -80,7 +98,41 @@ class SettingScreen extends StatelessWidget {
             value: controller.isDarkMode,
             onChanged: (value) => controller.toggleTheme(),
             activeColor: Colors.blue,
+            inactiveThumbColor: const Color.fromARGB(255, 190, 124, 0),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildSwitchTile(
+    BuildContext context,
+    String title,
+    String subtitle,
+    bool initialView,
+  ) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      margin: EdgeInsets.all(6),
+      padding: .all(6),
+      decoration: BoxDecoration(
+        borderRadius: .circular(10),
+        color: isdark ? Colors.grey[900] : Colors.grey[200],
+      ),
+      child: ListTile(
+        title: Text(
+          title,
+          style: GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+        ),
+        trailing: Switch.adaptive(
+          value: initialView,
+          onChanged: (value) => {},
+          activeColor: Colors.blue,
+          inactiveThumbColor: Colors.black,
         ),
       ),
     );
