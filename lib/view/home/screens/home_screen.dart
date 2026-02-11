@@ -3,6 +3,7 @@ import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/all_product_screen.dart';
 import 'package:ecommerceapp/view/my_cart_screen.dart';
+import 'package:ecommerceapp/view/notification_screen.dart';
 import 'package:ecommerceapp/widgets/category_chip.dart';
 import 'package:ecommerceapp/widgets/custom_search_bar.dart';
 import 'package:ecommerceapp/widgets/product_grid.dart';
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'Hello, Alex',
                             style: GoogleFonts.poppins(
                               fontSize: 13,
-                              color: Colors.grey,
+                              color: isdark ? Colors.grey : Colors.grey[800],
                             ),
                           ),
                           Text(
@@ -78,7 +79,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(width: 10),
-                      Badge.count(count: 0, child: Icon(CupertinoIcons.bell)),
+                      InkWell(
+                        onTap: () => Get.to(NotificationScreen()),
+                        child: Badge.count(
+                          count: 0,
+                          child: Icon(CupertinoIcons.bell),
+                        ),
+                      ),
                       IconButton(
                         onPressed: () {
                           themeController.toggleTheme();

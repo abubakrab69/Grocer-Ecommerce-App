@@ -45,7 +45,7 @@ class SaleBanners extends StatelessWidget {
               Get.snackbar(
                 'Implementation Error',
                 'There is no implementation',
-                snackPosition: SnackPosition.BOTTOM,
+                borderRadius: 50,
               );
             },
             child: Container(

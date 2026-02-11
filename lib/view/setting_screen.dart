@@ -23,13 +23,13 @@ class SettingScreen extends StatelessWidget {
         ),
         title: Text(
           'Settings',
-          style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w500),
+          style: GoogleFonts.poppins(fontSize: 23, fontWeight: FontWeight.w500),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            buildSection(context, 'Appearence', [buildThemeToggle(context)]),
+            buildSection(context, 'Appearance', [buildThemeToggle(context)]),
             buildSection(context, 'Notification', [
               buildSwitchTile(
                 context,
@@ -43,6 +43,23 @@ class SettingScreen extends StatelessWidget {
                 'Recieve Email notification and others',
                 true,
               ),
+            ]),
+            buildSection(context, 'Privacy', [
+              buildNavigationTile(
+                context,
+                'Privacy policy',
+                'view our privacy policy',
+                Icons.privacy_tip_outlined,
+              ),
+              buildNavigationTile(
+                context,
+                'Term of Services',
+                'view our term of services',
+                Icons.description_outlined,
+              ),
+            ]),
+            buildSection(context, 'App version', [
+              buildNavigationTile(context, 'App version', '1.0.0', Icons.info),
             ]),
           ],
         ),
@@ -88,7 +105,7 @@ class SettingScreen extends StatelessWidget {
                 : const Color.fromARGB(255, 190, 124, 0),
           ),
           title: Text(
-            isdark ? 'Dark Mode' : 'Light Mode',
+            isdark ? 'Light Mode' : 'Dark Mode',
             style: GoogleFonts.poppins(
               fontSize: 17,
               color: isdark ? Colors.white : Colors.black,
@@ -122,11 +139,17 @@ class SettingScreen extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
+          style: GoogleFonts.poppins(
+            fontSize: 17,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
+          ),
         ),
         subtitle: Text(
           subtitle,
-          style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
+          ),
         ),
         trailing: Switch.adaptive(
           value: initialView,
@@ -134,6 +157,42 @@ class SettingScreen extends StatelessWidget {
           activeColor: Colors.blue,
           inactiveThumbColor: Colors.black,
         ),
+      ),
+    );
+  }
+
+  Widget buildNavigationTile(
+    BuildContext context,
+    String title,
+    String subtitle,
+    IconData icon,
+  ) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      margin: .all(6),
+      decoration: BoxDecoration(
+        color: isdark ? Colors.grey[900] : Colors.grey[200],
+        borderRadius: .circular(10),
+      ),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.red),
+        title: Text(
+          title,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
+          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
+          ),
+        ),
+        trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16),
+        onTap: () {},
       ),
     );
   }
