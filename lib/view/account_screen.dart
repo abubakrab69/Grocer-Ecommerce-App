@@ -1,7 +1,13 @@
+import 'dart:ui';
+
+import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/signinscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:io';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -150,7 +156,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             onTap: () {
               if (item['title'] == 'Logout') {
-                // navigate to logout screen
+                showLogoutDialogue(context);
               } else if (item['title'] == 'My orders') {
                 // navigate to m order screen
               } else if (item['title'] == 'Help center') {
@@ -162,6 +168,124 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
         );
       }).toList(),
+    );
+  }
+
+  void showLogoutDialogue(BuildContext context) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+    AuthController authController = Get.put(AuthController());
+    Get.dialog(
+      barrierColor: Colors.black.withOpacity(0.5), // dim background
+      barrierDismissible: true,
+      Dialog(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(28),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20), // blur strength
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 32),
+              decoration: BoxDecoration(
+                color: isdark
+                    ? Colors.white.withOpacity(0.08)
+                    : Colors.white.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(28),
+                border: Border.all(color: Colors.white.withOpacity(0.2)),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.logout, color: Colors.red, size: 32),
+
+                  const SizedBox(height: 12),
+
+                  Text(
+                    'Are you sure to logout?',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(50),
+                          onTap: () => Get.back(),
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(
+                                color: Colors.blue,
+                                width: 1.5,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Cancel',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 10),
+
+                      Expanded(
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(50),
+                          onTap: () {
+                            authController.logout();
+                            Get.offAll(Signinscreen());
+                            Get.snackbar(
+                              'Logout Successfully',
+                              colorText: Colors.green,
+                              'logout successfully',
+
+                              borderRadius: 50,
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              border: BoxBorder.all(
+                                width: 2,
+                                color: Colors.blue,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.blue,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Done',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
