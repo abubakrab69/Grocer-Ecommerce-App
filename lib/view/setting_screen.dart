@@ -114,7 +114,7 @@ class SettingScreen extends StatelessWidget {
           trailing: Switch.adaptive(
             value: controller.isDarkMode,
             onChanged: (value) => controller.toggleTheme(),
-            activeColor: Colors.blue,
+            activeColor: AppTheme.light.primaryColor,
             inactiveThumbColor: const Color.fromARGB(255, 190, 124, 0),
           ),
         ),
@@ -154,7 +154,7 @@ class SettingScreen extends StatelessWidget {
         trailing: Switch.adaptive(
           value: initialView,
           onChanged: (value) => {},
-          activeColor: Colors.blue,
+          activeColor: AppTheme.light.primaryColor,
           inactiveThumbColor: Colors.black,
         ),
       ),
@@ -176,7 +176,7 @@ class SettingScreen extends StatelessWidget {
         borderRadius: .circular(10),
       ),
       child: ListTile(
-        leading: Icon(icon, color: Colors.red),
+        leading: Icon(icon, color: AppTheme.light.primaryColor),
         title: Text(
           title,
           style: GoogleFonts.poppins(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   //light mode
-
   static final light = ThemeData(
     primaryColor: const Color.fromARGB(255, 119, 171, 59),
     brightness: Brightness.light,
@@ -27,7 +26,6 @@ class AppTheme {
   );
 
   // dark mode
-
   static final dark = ThemeData(
     primaryColor: const Color.fromARGB(255, 119, 171, 59),
     brightness: Brightness.dark,

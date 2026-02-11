@@ -119,8 +119,8 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget buildMenuSection(BuildContext context) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     final menuItems = [
-      {'icon': Icons.shopping_bag, 'title': 'My orders'},
-      {'icon': Icons.location_on, 'title': 'Shopping Address'},
+      {'icon': Icons.shopping_bag_outlined, 'title': 'My orders'},
+      {'icon': Icons.location_on_outlined, 'title': 'Shopping Address'},
       {'icon': Icons.help_outline, 'title': 'Help center'},
       {'icon': Icons.logout, 'title': 'Logout'},
     ];
@@ -134,7 +134,10 @@ class _AccountScreenState extends State<AccountScreen> {
             borderRadius: .circular(10),
           ),
           child: ListTile(
-            leading: Icon(item['icon'] as IconData?, color: Colors.blue),
+            leading: Icon(
+              item['icon'] as IconData?,
+              color: AppTheme.light.primaryColor,
+            ),
             title: Text(
               item['title'] as String,
               style: GoogleFonts.poppins(
@@ -145,7 +148,7 @@ class _AccountScreenState extends State<AccountScreen> {
             trailing: Icon(
               Icons.arrow_forward_ios_rounded,
               size: 16,
-              color: Colors.blue,
+              color: AppTheme.light.primaryColor,
             ),
             onTap: () {
               if (item['title'] == 'Logout') {
