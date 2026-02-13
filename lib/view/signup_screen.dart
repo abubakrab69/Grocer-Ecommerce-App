@@ -92,7 +92,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   return null;
                 },
               ),
-
               SizedBox(height: 17),
               CutomTextfield(
                 hintText: 'Enter your Password',
@@ -108,7 +107,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   return null;
                 },
               ),
-
               SizedBox(height: 17),
               CutomTextfield(
                 hintText: 'Enter your Confirm Password',
@@ -181,6 +179,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ],
               ),
               SizedBox(height: 10),
+              //...
             ],
           ),
         ),
