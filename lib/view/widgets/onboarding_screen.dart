@@ -80,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             },
           ),
           Positioned(
-            bottom: 100,
+            bottom: 125,
             left: 0,
             right: 0,
             child: Row(
@@ -104,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Positioned(
-            top: 25,
+            top: 35,
             right: 16,
             child: TextButton(
               onPressed: () {
@@ -119,7 +119,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           Positioned(
-            bottom: 30,
+            bottom: 40,
             left: 10,
             right: 10,
             child: InkWell(
@@ -134,8 +134,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 }
               },
               child: Container(
-                width: 20,
-                height: 50,
+                width: double.infinity,
+                height: 55,
                 decoration: BoxDecoration(
                   color: AppTheme.light.primaryColor,
                   borderRadius: .circular(50),
