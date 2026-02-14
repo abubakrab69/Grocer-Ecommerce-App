@@ -171,7 +171,7 @@ class _AccountScreenState extends State<AccountScreen> {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     AuthController authController = Get.put(AuthController());
     Get.dialog(
-      barrierColor: Colors.black.withOpacity(0.5), // dim background
+      barrierColor: Colors.black.withOpacity(0.5),
       barrierDismissible: true,
       Dialog(
         backgroundColor: Colors.transparent,
@@ -179,7 +179,7 @@ class _AccountScreenState extends State<AccountScreen> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(45),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20), // blur strength
+            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
               decoration: BoxDecoration(

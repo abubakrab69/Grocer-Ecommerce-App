@@ -59,7 +59,7 @@ class _CategoryChipState extends State<CategoryChip> {
                   color: selectedIndex == index
                       ? Colors.transparent
                       : isdark
-                      ? Colors.grey[400]!
+                      ? Colors.grey[600]!
                       : Colors.grey[400]!,
                 ),
               ),
