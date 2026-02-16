@@ -61,7 +61,16 @@ class MyOrderScreen extends StatelessWidget {
     return ListView.builder(
       itemCount: 6,
       itemBuilder: (context, index) {
-        return;
+        return OrderCard(
+          order: OrderRepository().getOrders()[index],
+          onViewDetails: () {
+            Get.snackbar(
+              'Implementation Error',
+              'There is no implementation for view details',
+              borderRadius: 50,
+            );
+          },
+        );
       },
     );
   }

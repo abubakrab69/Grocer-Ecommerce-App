@@ -1,3 +1,5 @@
+import 'package:flutter/widgets.dart';
+
 enum OrderStatus { active, completed, cencelled }
 
 class MyOrder {
@@ -5,7 +7,7 @@ class MyOrder {
   final String itemCount;
   final String totalAmmount;
   final String status;
-  final String imageUrl;
+  final Image imageUrl;
   final DateTime orderDate;
 
   MyOrder({

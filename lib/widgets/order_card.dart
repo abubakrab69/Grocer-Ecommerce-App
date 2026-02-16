@@ -1,11 +1,11 @@
 import 'package:ecommerceapp/models/order.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderCard extends StatelessWidget {
   final MyOrder order;
   final VoidCallback onViewDetails;
+
   const OrderCard({
     super.key,
     required this.order,
@@ -14,53 +14,89 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isdark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return InkWell(
       onTap: onViewDetails,
       child: Container(
         width: double.infinity,
-        // height: 400,
-        padding: .all(10),
-        margin: .all(8),
+        padding: const EdgeInsets.all(13),
+        margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: isdark ? Colors.grey[800] : Colors.grey[300],
+          color: isDark ? Colors.grey[850] : Colors.grey[200],
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey[300]!,
-              spreadRadius: 0.5,
-              blurRadius: 1,
+              color: isDark ? Colors.black26 : Colors.grey.shade300,
+              spreadRadius: 1,
+              blurRadius: 5,
             ),
           ],
         ),
         child: Row(
-          mainAxisAlignment: .spaceBetween,
-          crossAxisAlignment: .center,
           children: [
-            Container(child: Image.asset(order.imageUrl, fit: BoxFit.contain)),
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: isDark ? Colors.grey[900] : Colors.grey[200],
+              ),
+              child: Icon(
+                Icons.shopping_bag,
+                color: isDark ? Colors.grey[200] : Colors.grey[800],
+                size: 32,
+              ),
+            ),
+            SizedBox(width: 20),
             Column(
-              mainAxisAlignment: .start,
+              crossAxisAlignment: .start,
               children: [
                 Text(
-                  'Order #${order.orderNumber}',
+                  'Order # ${order.orderNumber}',
                   style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: isdark ? Colors.white : Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                Text(
-                  'Order #${order.orderDate}',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: isdark ? Colors.grey[500] : Colors.grey[700],
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      '${order.itemCount.length} items',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      '\$${order.totalAmmount}',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
                 ),
+                SizedBox(height: 10),
+                buildOrderStatus(context),
               ],
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildOrderStatus(BuildContext context) {
+    return Container(
+      padding: .symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.green[100],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        order.status,
+        style: GoogleFonts.poppins(fontSize: 12, color: Colors.black),
       ),
     );
   }
