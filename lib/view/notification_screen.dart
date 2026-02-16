@@ -74,10 +74,15 @@ class NotificationScreen extends StatelessWidget {
       child: ListTile(
         leading: Icon(
           NotificationUtils.getNotificationIcon(notification[index].type),
+          color: Colors.black,
         ),
         title: Text(
           notification[index].title,
-          style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w500),
+          style: GoogleFonts.poppins(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.black,
+          ),
         ),
         subtitle: Column(
           mainAxisAlignment: MainAxisAlignment.start,

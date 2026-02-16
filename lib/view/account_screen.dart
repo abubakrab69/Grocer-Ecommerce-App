@@ -4,6 +4,7 @@ import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/my_order_screen.dart';
 import 'package:ecommerceapp/view/setting_screen.dart';
+import 'package:ecommerceapp/view/shipping_address_screen.dart';
 import 'package:ecommerceapp/view/signinscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,7 @@ class _AccountScreenState extends State<AccountScreen> {
               } else if (item['title'] == 'Help center') {
                 // navigate to help center
               } else if (item['title'] == 'Shopping Address') {
-                // navigate to shopping screen
+                Get.to(ShippingAddressScreen());
               }
             },
           ),
