@@ -1,4 +1,4 @@
-enum Order { active, completed, cencelled }
+enum OrderStatus { active, completed, cencelled }
 
 class MyOrder {
   final String orderNumber;
@@ -17,7 +17,7 @@ class MyOrder {
     required this.orderDate,
   });
 
-  String get formattedDate {
-    return '${orderDate.day}/${orderDate.month}/${orderDate.year}';
-  }
+  // String get formattedDate {
+  //   return '${orderDate.day}/${orderDate.month}/${orderDate.year}';
+  // }
 }
