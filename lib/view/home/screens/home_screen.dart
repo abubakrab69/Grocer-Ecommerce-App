@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/controllers/theme_controller.dart';
 import 'package:ecommerceapp/models/product_model.dart';
+import 'package:ecommerceapp/repository/notification_repository.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/all_product_screen.dart';
 import 'package:ecommerceapp/view/my_cart_screen.dart';
@@ -21,8 +22,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  NotificationRepository repository = NotificationRepository();
   @override
   Widget build(BuildContext context) {
+    final repository = NotificationRepository();
     final isdark = Theme.of(context).brightness == Brightness.dark;
     ThemeController themeController = Get.put(ThemeController());
     return Scaffold(
@@ -82,7 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       InkWell(
                         onTap: () => Get.to(NotificationScreen()),
                         child: Badge.count(
-                          count: 0,
+                          count: NotificationRepository()
+                              .getNotifications()
+                              .length,
                           child: Icon(CupertinoIcons.bell),
                         ),
                       ),
