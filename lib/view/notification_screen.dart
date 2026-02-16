@@ -80,7 +80,7 @@ class NotificationScreen extends StatelessWidget {
           style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w500),
         ),
         subtitle: Column(
-          mainAxisAlignment: .start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               notification[index].message,

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/my_order_screen.dart';
 import 'package:ecommerceapp/view/setting_screen.dart';
 import 'package:ecommerceapp/view/signinscreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -154,7 +155,7 @@ class _AccountScreenState extends State<AccountScreen> {
               if (item['title'] == 'Logout') {
                 showLogoutDialogue(context);
               } else if (item['title'] == 'My orders') {
-                // navigate to m order screen
+                Get.to(MyOrderScreen());
               } else if (item['title'] == 'Help center') {
                 // navigate to help center
               } else if (item['title'] == 'Shopping Address') {
