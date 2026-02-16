@@ -77,7 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           Get.to(MyCartScreen());
                         },
                         child: Badge.count(
-                          count: 0,
+                          isLabelVisible: products.length > 0,
+                          count: products.length,
                           child: Icon(Icons.shopping_cart_outlined),
                         ),
                       ),
@@ -85,6 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       InkWell(
                         onTap: () => Get.to(NotificationScreen()),
                         child: Badge.count(
+                          isLabelVisible:
+                              repository.getNotifications().length > 0,
                           count: NotificationRepository()
                               .getNotifications()
                               .length,

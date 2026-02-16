@@ -122,7 +122,7 @@ class _AccountScreenState extends State<AccountScreen> {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     final menuItems = [
       {'icon': Icons.shopping_bag_outlined, 'title': 'My orders'},
-      {'icon': Icons.location_on_outlined, 'title': 'Shopping Address'},
+      {'icon': Icons.location_on_outlined, 'title': 'Shipping Address'},
       {'icon': Icons.help_outline, 'title': 'Help center'},
       {'icon': Icons.logout, 'title': 'Logout'},
     ];
@@ -159,7 +159,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 Get.to(MyOrderScreen());
               } else if (item['title'] == 'Help center') {
                 // navigate to help center
-              } else if (item['title'] == 'Shopping Address') {
+              } else if (item['title'] == 'Shipping Address') {
                 Get.to(ShippingAddressScreen());
               }
             },
