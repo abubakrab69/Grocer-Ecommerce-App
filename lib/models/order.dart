@@ -17,7 +17,7 @@ class MyOrder {
     required this.orderDate,
   });
 
-  // String get formattedDate {
-  //   return '${orderDate.day}/${orderDate.month}/${orderDate.year}';
-  // }
+  String get formattedDate {
+    return '${orderDate.day}/${orderDate.month}/${orderDate.year}';
+  }
 }

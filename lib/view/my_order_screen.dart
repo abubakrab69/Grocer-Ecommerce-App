@@ -1,3 +1,7 @@
+import 'package:ecommerceapp/models/order.dart';
+import 'package:ecommerceapp/repository/order_repository.dart';
+import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/widgets/order_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -9,20 +13,56 @@ class MyOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(Icons.arrow_back_ios_outlined),
+    OrderRepository orderRepository = OrderRepository();
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back_ios_outlined),
+          ),
+          title: Text(
+            'My Orders',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          bottom: TabBar(
+            indicatorColor: AppTheme.light.primaryColor,
+            unselectedLabelColor: isdark
+                ? Colors.grey[200]!
+                : Colors.grey[600]!,
+            tabs: const [
+              Tab(text: 'Active'),
+              Tab(text: 'Completed'),
+              Tab(text: 'Cancelled'),
+            ],
+          ),
         ),
-        title: Text(
-          'My Orders',
-          style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600),
+        body: TabBarView(
+          children: [
+            buildOrderList(context, OrderStatus.active),
+            buildOrderList(context, OrderStatus.completed),
+            buildOrderList(context, OrderStatus.cencelled),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget buildOrderList(BuildContext context, OrderStatus status) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+
+    return ListView.builder(
+      itemCount: 6,
+      itemBuilder: (context, index) {
+        return;
+      },
     );
   }
 }
