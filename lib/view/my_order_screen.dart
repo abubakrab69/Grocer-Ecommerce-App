@@ -8,12 +8,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyOrderScreen extends StatelessWidget {
-  const MyOrderScreen({super.key});
+  MyOrderScreen({super.key});
+  OrderRepository orderRepository = OrderRepository();
 
   @override
   Widget build(BuildContext context) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
-    OrderRepository orderRepository = OrderRepository();
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -56,13 +57,15 @@ class MyOrderScreen extends StatelessWidget {
   }
 
   Widget buildOrderList(BuildContext context, OrderStatus status) {
+    final order = orderRepository.getOrderbyStatus(status);
     final isdark = Theme.of(context).brightness == Brightness.dark;
 
     return ListView.builder(
-      itemCount: 6,
+      itemCount: order.length,
+      padding: .all(8),
       itemBuilder: (context, index) {
         return OrderCard(
-          order: OrderRepository().getOrders()[index],
+          order: order[index],
           onViewDetails: () {
             Get.snackbar(
               'Implementation Error',

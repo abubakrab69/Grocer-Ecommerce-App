@@ -41,11 +41,7 @@ class OrderCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isDark ? Colors.grey[900] : Colors.grey[200],
               ),
-              child: Icon(
-                Icons.shopping_bag,
-                color: isDark ? Colors.grey[200] : Colors.grey[800],
-                size: 32,
-              ),
+              child: Image.asset(order.imageUrl.toString(), fit: BoxFit.cover),
             ),
             SizedBox(width: 20),
             Column(
@@ -69,7 +65,7 @@ class OrderCard extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      '\$${order.totalAmmount}',
+                      '\$${order.totalAmount}',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w300,
@@ -95,7 +91,7 @@ class OrderCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
-        order.status,
+        order.statusString,
         style: GoogleFonts.poppins(fontSize: 12, color: Colors.black),
       ),
     );
