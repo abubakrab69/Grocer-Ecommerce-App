@@ -55,10 +55,14 @@ class NotificationScreen extends StatelessWidget {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     final notification = repository.getNotifications();
     return Container(
+      padding: .all(9),
       margin: .symmetric(vertical: 5),
       decoration: BoxDecoration(
-        color: isdark ? Colors.grey[900] : Colors.grey[100],
-        borderRadius: BorderRadius.circular(14),
+        color: NotificationUtils.getNotificationIconColor(
+          context,
+          notification[index].type,
+        ),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: isdark ? Colors.grey[700]! : Colors.grey[200]!,
@@ -70,6 +74,24 @@ class NotificationScreen extends StatelessWidget {
       child: ListTile(
         leading: Icon(
           NotificationUtils.getNotificationIcon(notification[index].type),
+        ),
+        title: Text(
+          notification[index].title,
+          style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w500),
+        ),
+        subtitle: Column(
+          mainAxisAlignment: .start,
+          children: [
+            Text(
+              notification[index].message,
+              style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey[900]),
+            ),
+            const SizedBox(height: 5),
+          ],
+        ),
+        trailing: Text(
+          notification[index].time,
+          style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey[900]),
         ),
       ),
     );
