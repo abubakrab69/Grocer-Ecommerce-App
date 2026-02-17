@@ -77,8 +77,9 @@ class AddressCard extends StatelessWidget {
 
               Divider(
                 color: isdark ? Colors.grey[200] : Colors.grey[900],
-                height: 6,
-                thickness: 1,
+                height: 20,
+                thickness: 3,
+                endIndent: .1,
               ),
               Row(
                 children: [
@@ -102,7 +103,7 @@ class AddressCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(width: 42),
+                  SizedBox(width: 62),
                   InkWell(
                     onTap: ondelete,
                     child: Row(
