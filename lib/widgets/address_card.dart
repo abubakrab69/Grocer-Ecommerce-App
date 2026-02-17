@@ -77,39 +77,46 @@ class AddressCard extends StatelessWidget {
 
               Divider(
                 color: isdark ? Colors.grey[200] : Colors.grey[900],
-                height: 2,
+                height: 6,
+                thickness: 1,
               ),
               Row(
                 children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: onedit,
-                        icon: Icon(
+                  InkWell(
+                    onTap: onedit,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
                           Icons.edit_outlined,
                           color: isdark ? Colors.grey[200] : Colors.grey[900],
                         ),
-                      ),
-                      Text(
-                        'Edit',
-                        style: GoogleFonts.poppins(
-                          color: isdark ? Colors.grey[200] : Colors.grey[900],
+                        SizedBox(width: 7),
+                        Text(
+                          'Edit',
+                          style: GoogleFonts.poppins(
+                            color: isdark ? Colors.grey[200] : Colors.grey[900],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  SizedBox(width: 10),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: ondelete,
-                        icon: Icon(Icons.delete, color: Colors.red),
-                      ),
-                      Text(
-                        'Delete',
-                        style: GoogleFonts.poppins(color: Colors.red),
-                      ),
-                    ],
+                  SizedBox(width: 42),
+                  InkWell(
+                    onTap: ondelete,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.delete, color: Colors.red),
+                        SizedBox(width: 7),
+                        Text(
+                          'Delete',
+                          style: GoogleFonts.poppins(color: Colors.red),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
