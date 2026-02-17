@@ -71,7 +71,7 @@ class AddressCard extends StatelessWidget {
               ),
               SizedBox(height: 7),
               Text(
-                '${address.city}, ${address.country}, ${address.postalCode}, ${address.phoneNumber}, ${address.id}',
+                '${address.city}, ${address.country}, ${address.postalCode}, ${address.phoneNumber}, ${address.id}, ${address.state}',
                 style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey),
               ),
 

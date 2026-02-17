@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:ecommerceapp/models/address.dart';
 import 'package:ecommerceapp/repository/address_repository.dart';
 import 'package:ecommerceapp/widgets/address_card.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +52,161 @@ class ShippingAddressScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         color: isdark ? Colors.grey[900] : Colors.grey[200],
       ),
-      child: AddressCard(address: address, ondelete: () {}, onedit: () {}),
+      child: AddressCard(
+        address: address,
+        ondelete: () => _showDeletedConfirmation(context),
+        onedit: () => _showEditBottomSheet(context, address),
+      ),
+    );
+  }
+
+  void _showDeletedConfirmation(BuildContext context) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+    Get.dialog(
+      barrierColor: Colors.black.withOpacity(0.5),
+      barrierDismissible: true,
+      Dialog(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(45),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 20),
+              decoration: BoxDecoration(
+                color: isdark
+                    ? Colors.white.withOpacity(0.08)
+                    : Colors.white.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(28),
+                border: Border.all(color: Colors.white.withOpacity(0.2)),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.delete, color: Colors.red, size: 32),
+
+                  const SizedBox(height: 12),
+
+                  Text(
+                    'Are you sure to Delete location?',
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(50),
+                          onTap: () => Get.back(),
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(color: Colors.blue, width: 2),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Cancel',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(50),
+                          onTap: () {
+                            Get.snackbar(
+                              'Deleted Successfully',
+                              colorText: Colors.green,
+                              'Deleted successfully',
+
+                              borderRadius: 50,
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              border: BoxBorder.all(
+                                width: 2,
+                                color: isdark
+                                    ? Colors.grey[800]!
+                                    : Colors.grey[400]!,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                              color: isdark
+                                  ? Colors.grey[800]
+                                  : Colors.grey[400],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Delete',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showEditBottomSheet(BuildContext context, Address address) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+    Get.bottomSheet(
+      Container(
+        decoration: BoxDecoration(
+          color: isdark ? Colors.grey[900] : Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Edit address',
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                IconButton(onPressed: () {}, icon: Icon(Icons.close)),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
