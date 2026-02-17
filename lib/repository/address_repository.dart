@@ -1,34 +1,34 @@
 import 'package:ecommerceapp/models/address.dart';
 
 class AddressRepository {
-  List<address> getAddresses() {
+  List<Address> getAddresses() {
     return [
-      address(
+      Address(
         id: '1',
         city: 'Lahore',
         state: 'RX',
         country: 'Pakistan',
         postalCode: '120',
         phoneNumber: '03708904231',
-        type: Address.home,
+        type: AddressType.home,
         isdefault: true,
       ),
-      address(
+      Address(
         id: '2',
         city: 'Lahore',
         state: 'RX',
         country: 'Pakistan',
         postalCode: '130',
         phoneNumber: '03708904231',
-        type: Address.office,
+        type: AddressType.office,
         isdefault: false,
       ),
     ];
   }
 
-  address? getAddressById(String id) {
+  Address? getAddressById(String id) {
     return getAddresses().firstWhere(
-      (address) => address.isdefault,
+      (Address) => Address.isdefault == id,
       orElse: () => getAddresses().first,
     );
   }

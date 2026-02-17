@@ -49,7 +49,7 @@ class ShippingAddressScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         color: isdark ? Colors.grey[900] : Colors.grey[200],
       ),
-      child: Text(address.toString()),
+      child: AddressCard(address: address, ondelete: () {}, onedit: () {}),
     );
   }
 }

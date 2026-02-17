@@ -1,15 +1,15 @@
-enum Address { home, office, other }
+enum AddressType { home, office, other }
 
-class address {
+class Address {
   final String id;
   final String city;
   final String state;
   final String country;
   final String postalCode;
   final String phoneNumber;
-  final Address type;
+  final AddressType type;
   final bool isdefault;
-  address({
+  Address({
     required this.id,
     required this.city,
     required this.state,
