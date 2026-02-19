@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerceapp/models/address.dart';
 import 'package:ecommerceapp/repository/address_repository.dart';
+import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/widgets/address_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -133,6 +134,7 @@ class ShippingAddressScreen extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(50),
                           onTap: () {
+                            Get.back();
                             Get.snackbar(
                               'Deleted Successfully',
                               colorText: Colors.green,
@@ -191,20 +193,63 @@ class ShippingAddressScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Edit address',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Edit address',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.close)),
-              ],
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(Icons.close),
+                  ),
+                ],
+              ),
             ),
+            buildTextFields(context, 'Name', Icons.person),
+            SizedBox(height: 10),
+            buildTextFields(context, 'Full address', Icons.location_on),
+            SizedBox(height: 10),
+            buildTextFields(context, 'City', Icons.phone),
+            SizedBox(height: 20),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTextFields(
+    BuildContext context,
+    String label,
+    IconData icon, {
+    String? initialvalue,
+  }) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 14.0),
+      child: TextFormField(
+        initialValue: initialvalue,
+        decoration: InputDecoration(
+          label: Text(label),
+          prefixIcon: Icon(icon),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 1, color: Colors.grey),
+            borderRadius: .circular(8),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: AppTheme.light.primaryColor,
+            ),
+            borderRadius: .circular(8),
+          ),
         ),
       ),
     );

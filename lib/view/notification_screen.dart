@@ -32,7 +32,7 @@ class NotificationScreen extends StatelessWidget {
           TextButton(
             onPressed: () {},
             child: Text(
-              'Mark all as read',
+              'Mark All as read',
               style: GoogleFonts.poppins(
                 fontSize: 15,
                 color: isdark
