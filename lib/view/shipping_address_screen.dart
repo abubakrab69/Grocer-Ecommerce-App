@@ -184,43 +184,91 @@ class ShippingAddressScreen extends StatelessWidget {
   void _showEditBottomSheet(BuildContext context, Address address) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
     Get.bottomSheet(
-      Container(
-        decoration: BoxDecoration(
-          color: isdark ? Colors.grey[900] : Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            color: isdark ? Colors.grey[900] : Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Edit address',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: Icon(Icons.close),
+                    ),
+                  ],
+                ),
+              ),
+              buildTextFields(context, 'Name', Icons.person),
+              SizedBox(height: 15),
+              buildTextFields(context, 'Full address', Icons.location_on),
+              SizedBox(height: 15),
+              buildTextFields(context, 'City', Icons.phone),
+              SizedBox(height: 15),
+              Row(
                 children: [
-                  Text(
-                    'Edit address',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                  Expanded(
+                    child: buildTextFields(
+                      context,
+                      'State',
+                      Icons.map_outlined,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(Icons.close),
+                  Expanded(
+                    child: buildTextFields(
+                      context,
+                      'ZIP Code',
+                      Icons.pin_outlined,
+                    ),
                   ),
                 ],
               ),
-            ),
-            buildTextFields(context, 'Name', Icons.person),
-            SizedBox(height: 10),
-            buildTextFields(context, 'Full address', Icons.location_on),
-            SizedBox(height: 10),
-            buildTextFields(context, 'City', Icons.phone),
-            SizedBox(height: 20),
-          ],
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: InkWell(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: AppTheme.light.primaryColor,
+                      borderRadius: .circular(14),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Update Address',
+                        style: GoogleFonts.poppins(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );
@@ -238,7 +286,7 @@ class ShippingAddressScreen extends StatelessWidget {
         initialValue: initialvalue,
         decoration: InputDecoration(
           label: Text(label),
-          prefixIcon: Icon(icon),
+          prefixIcon: Icon(icon, color: AppTheme.light.primaryColor),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 1, color: Colors.grey),
             borderRadius: .circular(8),
