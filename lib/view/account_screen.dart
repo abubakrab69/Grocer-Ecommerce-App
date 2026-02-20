@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ecommerceapp/controllers/auth_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/edit_profile_screen.dart';
 import 'package:ecommerceapp/view/my_order_screen.dart';
 import 'package:ecommerceapp/view/setting_screen.dart';
 import 'package:ecommerceapp/view/shipping_address_screen.dart';
@@ -94,7 +95,9 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
           SizedBox(height: 14),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.to(EditProfileScreen());
+            },
             child: Container(
               padding: .all(10),
               width: 130,

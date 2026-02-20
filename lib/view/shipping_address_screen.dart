@@ -215,11 +215,27 @@ class ShippingAddressScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              buildTextFields(context, 'Name', Icons.person),
+              buildTextFields(
+                context,
+                'Name',
+                Icons.person,
+                initialvalue: address.type.toString(),
+              ),
               SizedBox(height: 15),
-              buildTextFields(context, 'Full address', Icons.location_on),
+              buildTextFields(
+                context,
+                'Full address',
+                Icons.location_on,
+                initialvalue:
+                    '${address.postalCode}, ${address.city}, ${address.state} - ${address.country}',
+              ),
               SizedBox(height: 15),
-              buildTextFields(context, 'City', Icons.phone),
+              buildTextFields(
+                context,
+                'City',
+                Icons.phone,
+                initialvalue: address.city,
+              ),
               SizedBox(height: 15),
               Row(
                 children: [
@@ -228,6 +244,7 @@ class ShippingAddressScreen extends StatelessWidget {
                       context,
                       'State',
                       Icons.map_outlined,
+                      initialvalue: address.state,
                     ),
                   ),
                   Expanded(
@@ -235,6 +252,7 @@ class ShippingAddressScreen extends StatelessWidget {
                       context,
                       'ZIP Code',
                       Icons.pin_outlined,
+                      initialvalue: address.postalCode,
                     ),
                   ),
                 ],
