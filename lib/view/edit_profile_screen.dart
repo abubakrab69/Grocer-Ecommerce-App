@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/view/profile_form.dart';
 import 'package:ecommerceapp/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -24,7 +25,17 @@ class EditProfileScreen extends StatelessWidget {
           style: GoogleFonts.poppins(fontSize: 21, fontWeight: FontWeight.w500),
         ),
       ),
-      body: SingleChildScrollView(child: Column(children: [ProfileImage()])),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            ProfileImage(),
+            SizedBox(height: 35),
+
+            ProfileForm(),
+          ],
+        ),
+      ),
     );
   }
 }

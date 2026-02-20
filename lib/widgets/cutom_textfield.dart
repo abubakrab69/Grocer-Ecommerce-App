@@ -11,6 +11,7 @@ class CutomTextfield extends StatefulWidget {
   final TextInputType keyboardType;
   final void Function(String)? onchange;
   final String? Function(String?) validator;
+  final String? initialValue;
 
   const CutomTextfield({
     super.key,
@@ -22,6 +23,7 @@ class CutomTextfield extends StatefulWidget {
     this.controller,
     required this.validator,
     required this.keyboardType,
+    this.initialValue,
   });
 
   @override
@@ -35,6 +37,7 @@ class _CutomTextfieldState extends State<CutomTextfield> {
     final isdark = Theme.of(context).brightness == Brightness.dark;
 
     return TextFormField(
+      initialValue: widget.initialValue,
       controller: widget.controller,
       obscureText: widget.isPassword ?? _obsecureText,
       keyboardType: widget.keyboardType,
@@ -45,6 +48,8 @@ class _CutomTextfieldState extends State<CutomTextfield> {
         hintStyle: GoogleFonts.poppins(fontSize: 15),
         labelText: widget.labelText,
         labelStyle: GoogleFonts.poppins(fontSize: 15),
+        fillColor: isdark ? Colors.black : Colors.transparent,
+        filled: true,
         prefixIcon: Icon(
           widget.preficIcon,
           color: isdark ? Colors.grey : Colors.grey,
