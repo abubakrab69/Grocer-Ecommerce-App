@@ -62,13 +62,14 @@ class ProfileForm extends StatelessWidget {
               keyboardType: TextInputType.number,
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 22),
           InkWell(
             onTap: () {},
             child: Container(
+              height: 55,
               decoration: BoxDecoration(
                 color: AppTheme.light.primaryColor,
-                borderRadius: .circular(12),
+                borderRadius: .circular(55),
               ),
               child: Center(
                 child: Text(
@@ -76,6 +77,7 @@ class ProfileForm extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 17,
                     fontWeight: FontWeight.w500,
+                    color: Colors.white,
                   ),
                 ),
               ),

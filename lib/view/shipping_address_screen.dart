@@ -269,7 +269,7 @@ class ShippingAddressScreen extends StatelessWidget {
                     height: 55,
                     decoration: BoxDecoration(
                       color: AppTheme.light.primaryColor,
-                      borderRadius: .circular(14),
+                      borderRadius: .circular(55),
                     ),
                     child: Center(
                       child: Text(
