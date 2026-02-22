@@ -22,7 +22,7 @@ class HelpCenterScreen extends StatelessWidget {
         ),
         title: Text(
           'Help Center',
-          style: GoogleFonts.poppins(fontSize: 21, fontWeight: FontWeight.w500),
+          style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w500),
         ),
       ),
       body: SingleChildScrollView(
@@ -44,7 +44,7 @@ class HelpCenterScreen extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              width: 1,
+              width: 1.5,
               color: isdsark ? Colors.grey[400]! : Colors.grey[700]!,
             ),
             borderRadius: .circular(12),
@@ -56,7 +56,6 @@ class HelpCenterScreen extends StatelessWidget {
             ),
             borderRadius: .circular(12),
           ),
-
           hintStyle: GoogleFonts.poppins(
             fontSize: 16,
             color: isdsark ? Colors.grey[400] : Colors.grey[700],
