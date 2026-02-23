@@ -54,7 +54,12 @@ class QuestionCard extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.close)),
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(Icons.close),
+                  ),
                 ],
               ),
             ],
