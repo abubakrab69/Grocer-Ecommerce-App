@@ -12,6 +12,7 @@ class PopularQuestionSection extends StatelessWidget {
       padding: .all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: .start,
         children: [
           Text(
             'Popular Questions',

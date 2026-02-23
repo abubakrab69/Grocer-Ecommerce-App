@@ -1,4 +1,6 @@
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/widgets/popular_question_section.dart';
+import 'package:ecommerceapp/widgets/question_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
@@ -26,7 +28,15 @@ class HelpCenterScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(children: [buildSearchBar(context)]),
+        child: Column(
+          children: [
+            buildSearchBar(context),
+            SizedBox(height: 10),
+            PopularQuestionSection(),
+            SizedBox(height: 10),
+            QuestionCard(),
+          ],
+        ),
       ),
     );
   }
