@@ -66,8 +66,9 @@ class QuestionCard extends StatelessWidget {
               Text(
                 _getAddress(question),
                 style: GoogleFonts.poppins(
-                  fontSize: 17,
+                  fontSize: 14,
                   fontWeight: FontWeight.w500,
+                  color: isdark ? Colors.grey : Colors.grey,
                 ),
               ),
             ],
@@ -79,16 +80,16 @@ class QuestionCard extends StatelessWidget {
 
   String _getAddress(String question) {
     final answers = {
-      'How can track my order?':
-          'to track your order\n\n'
+      'How can i track my order?':
+          'To track your order:\n\n'
           '1. go to "my order" in your account\n\n'
           '2. Select an order you want to track\n\n'
           '3. click on "Order track"\n\n'
           '4. you will get real update about your order\n\n',
       'How can return an item?':
-          'to return an item\n\n'
-          '1. go to "my order" screen in your account'
-          '1. Select "items" in your account screen',
+          'To return an item:\n\n'
+          '1. go to "my order" screen in your account\n\n'
+          '2. Select "items" in your account screen\n\n',
     };
     return answers[question] ??
         'Information not awalable! please contact support for assistance';

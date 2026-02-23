@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/widgets/question_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,16 @@ class PopularQuestionSection extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: isdark ? Colors.white : Colors.black,
             ),
+          ),
+          SizedBox(height: 15),
+          QuestionCard(
+            title: 'How can i track my order?',
+            icon: Icons.local_shipping,
+          ),
+          SizedBox(height: 10),
+          QuestionCard(
+            title: 'How can return an item?',
+            icon: Icons.local_shipping,
           ),
         ],
       ),

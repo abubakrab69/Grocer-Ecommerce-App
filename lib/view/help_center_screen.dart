@@ -33,11 +33,7 @@ class HelpCenterScreen extends StatelessWidget {
             buildSearchBar(context),
             SizedBox(height: 10),
             const PopularQuestionSection(),
-            SizedBox(height: 10),
-            const QuestionCard(
-              title: 'How can I track my order?',
-              icon: Icons.local_shipping,
-            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
