@@ -77,7 +77,6 @@ class _SplashScreenState extends State<SplashScreen> {
                         'Style meets simpicity',
                         style: GoogleFonts.poppins(
                           color: Colors.white,
-
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
                         ),
