@@ -26,12 +26,14 @@ class QuestionCard extends StatelessWidget {
         trailing: Icon(
           Icons.arrow_forward_ios_outlined,
           color: isdark ? Colors.grey[200]! : Colors.grey[900]!,
+          size: 18,
         ),
         onTap: () => _showAnswerBottomSheet(context, title, isdark),
       ),
     );
   }
 
+  //answer bottom sheet
   void _showAnswerBottomSheet(
     BuildContext context,
     String question,
@@ -39,6 +41,10 @@ class QuestionCard extends StatelessWidget {
   ) {
     Get.bottomSheet(
       Container(
+        decoration: BoxDecoration(
+          color: isdark ? Colors.grey[900] : Colors.grey[200],
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -68,9 +74,33 @@ class QuestionCard extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: isdark ? Colors.grey : Colors.grey,
+                  color: isdark ? Colors.grey[200] : Colors.grey[800],
                 ),
               ),
+              InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: .all(15),
+                  decoration: BoxDecoration(
+                    color: AppTheme.light.primaryColor,
+                    borderRadius: .circular(50),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Got it',
+                      style: GoogleFonts.poppins(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
             ],
           ),
         ),
