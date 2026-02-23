@@ -1,4 +1,6 @@
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/widgets/contact_support_section.dart';
+import 'package:ecommerceapp/widgets/help_category_section.dart';
 import 'package:ecommerceapp/widgets/popular_question_section.dart';
 import 'package:ecommerceapp/widgets/question_card.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +30,19 @@ class HelpCenterScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            buildSearchBar(context),
-            SizedBox(height: 10),
-            const PopularQuestionSection(),
-            SizedBox(height: 20),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              buildSearchBar(context),
+              SizedBox(height: 10),
+              const PopularQuestionSection(),
+              SizedBox(height: 10),
+              const HelpCategorySection(),
+              const ContactSupportSection(),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
@@ -54,7 +62,7 @@ class HelpCenterScreen extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1.5,
-              color: isdsark ? Colors.grey[400]! : Colors.grey[700]!,
+              color: isdsark ? Colors.grey[800]! : Colors.grey[200]!,
             ),
             borderRadius: .circular(12),
           ),
