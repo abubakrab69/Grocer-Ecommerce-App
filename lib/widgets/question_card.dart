@@ -27,7 +27,7 @@ class QuestionCard extends StatelessWidget {
           Icons.arrow_forward_ios_outlined,
           color: isdark ? Colors.grey[200]! : Colors.grey[900]!,
         ),
-        onTap: () => _showAnswerBottomSheet(context, 'question', isdark),
+        onTap: () => _showAnswerBottomSheet(context, title, isdark),
       ),
     );
   }
@@ -48,7 +48,7 @@ class QuestionCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Answer',
+                    question,
                     style: GoogleFonts.poppins(
                       fontSize: 17,
                       fontWeight: FontWeight.w500,
@@ -62,10 +62,35 @@ class QuestionCard extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 10),
+              Text(
+                _getAddress(question),
+                style: GoogleFonts.poppins(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  String _getAddress(String question) {
+    final answers = {
+      'How can track my order?':
+          'to track your order\n\n'
+          '1. go to "my order" in your account\n\n'
+          '2. Select an order you want to track\n\n'
+          '3. click on "Order track"\n\n'
+          '4. you will get real update about your order\n\n',
+      'How can return an item?':
+          'to return an item\n\n'
+          '1. go to "my order" screen in your account'
+          '1. Select "items" in your account screen',
+    };
+    return answers[question] ??
+        'Information not awalable! please contact support for assistance';
   }
 }
