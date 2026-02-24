@@ -1,6 +1,8 @@
+import 'package:ecommerceapp/controllers/cart_count_controller.dart';
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,6 +51,7 @@ class buildCartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CartCountController cartCountController = Get.put(CartCountController());
     final isdark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(10),
@@ -108,7 +111,9 @@ class buildCartItem extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cartCountController.decreament(Value);
+                    },
                     icon: Container(
                       width: 37,
                       height: 37,
@@ -122,15 +127,19 @@ class buildCartItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(
-                    '1',
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: isdark ? Colors.white : Colors.black,
+                  Obx(
+                    () => Text(
+                      cartCountController.cartcount.toString(),
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: isdark ? Colors.white : Colors.black,
+                      ),
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cartCountController.increament(Value);
+                    },
                     icon: Container(
                       width: 37,
                       height: 37,
