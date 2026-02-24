@@ -52,14 +52,14 @@ class SettingScreen extends StatelessWidget {
                 'Privacy policy',
                 'view our privacy policy',
                 Icons.privacy_tip_outlined,
-                onTap: () => Get.to(() => PrivacyPolicyScreen()),
+                onTap: () => Get.to(() => const PrivacyPolicyScreen()),
               ),
               buildNavigationTile(
                 context,
                 'Term of Services',
                 'view our term of services',
                 Icons.description_outlined,
-                onTap: () => Get.to(() => OnTermOfServicesScreen()),
+                onTap: () => Get.to(() => const OnTermOfServicesScreen()),
               ),
             ]),
             buildSection(context, 'App version', [
