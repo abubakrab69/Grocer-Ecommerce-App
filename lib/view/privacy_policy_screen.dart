@@ -61,6 +61,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
                   'we collect information that provide directly to us, including name , email address, shipping address',
             ),
             SizedBox(height: 10),
+            Text(
+              'Latest update: March 2024',
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: Colors.grey,
+              ),
+            ),
+            SizedBox(height: 30),
           ],
         ),
       ),

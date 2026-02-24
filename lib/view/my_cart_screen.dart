@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/controllers/cart_count_controller.dart';
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
+import 'package:ecommerceapp/view/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -200,7 +201,9 @@ class BuildCartInfo extends StatelessWidget {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => const CheckoutScreen());
+                },
                 child: Container(
                   // width: 20,
                   height: 50,
