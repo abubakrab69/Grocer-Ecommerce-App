@@ -1,6 +1,8 @@
 import 'package:ecommerceapp/controllers/theme_controller.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:ecommerceapp/view/my_cart_screen.dart';
+import 'package:ecommerceapp/view/on_term_of_services_screen.dart';
+import 'package:ecommerceapp/view/privacy_policy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
@@ -50,12 +52,14 @@ class SettingScreen extends StatelessWidget {
                 'Privacy policy',
                 'view our privacy policy',
                 Icons.privacy_tip_outlined,
+                onTap: () => Get.to(() => PrivacyPolicyScreen()),
               ),
               buildNavigationTile(
                 context,
                 'Term of Services',
                 'view our term of services',
                 Icons.description_outlined,
+                onTap: () => Get.to(() => OnTermOfServicesScreen()),
               ),
             ]),
             buildSection(context, 'App version', [
@@ -165,34 +169,38 @@ class SettingScreen extends StatelessWidget {
     BuildContext context,
     String title,
     String subtitle,
-    IconData icon,
-  ) {
+    IconData icon, {
+    VoidCallback? onTap,
+  }) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
 
-    return Container(
-      margin: .all(6),
-      decoration: BoxDecoration(
-        color: isdark ? Colors.grey[900] : Colors.grey[200],
-        borderRadius: .circular(10),
-      ),
-      child: ListTile(
-        leading: Icon(icon, color: AppTheme.light.primaryColor),
-        title: Text(
-          title,
-          style: GoogleFonts.poppins(
-            fontSize: 14,
-            color: isdark ? Colors.grey[200] : Colors.grey[800],
-          ),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: .all(6),
+        decoration: BoxDecoration(
+          color: isdark ? Colors.grey[900] : Colors.grey[200],
+          borderRadius: .circular(10),
         ),
-        subtitle: Text(
-          subtitle,
-          style: GoogleFonts.poppins(
-            fontSize: 14,
-            color: isdark ? Colors.grey[200] : Colors.grey[800],
+        child: ListTile(
+          leading: Icon(icon, color: AppTheme.light.primaryColor),
+          title: Text(
+            title,
+            style: GoogleFonts.poppins(
+              fontSize: 14,
+              color: isdark ? Colors.grey[200] : Colors.grey[800],
+            ),
           ),
+          subtitle: Text(
+            subtitle,
+            style: GoogleFonts.poppins(
+              fontSize: 14,
+              color: isdark ? Colors.grey[200] : Colors.grey[800],
+            ),
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16),
+          onTap: () {},
         ),
-        trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16),
-        onTap: () {},
       ),
     );
   }
