@@ -8,6 +8,8 @@ class ContactSupportSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isdark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: double.infinity,
       margin: .all(10),
@@ -18,13 +20,46 @@ class ContactSupportSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(Icons.headset_mic_outlined, size: 25),
+          Icon(
+            Icons.headset_mic_outlined,
+            size: 45,
+            color: AppTheme.light.primaryColor,
+          ),
           SizedBox(height: 10),
           Text(
             'Still need help?',
             style: GoogleFonts.poppins(
-              fontSize: 17,
+              fontSize: 18,
               fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            'Contact our support team',
+            style: GoogleFonts.poppins(
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              margin: .symmetric(horizontal: 44, vertical: 15),
+              padding: .all(16),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppTheme.light.primaryColor,
+                borderRadius: .circular(50),
+              ),
+              child: Center(
+                child: Text(
+                  'Contact support',
+                  style: GoogleFonts.poppins(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
