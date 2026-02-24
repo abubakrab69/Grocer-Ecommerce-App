@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/widgets/info_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
@@ -23,6 +24,16 @@ class PrivacyPolicyScreen extends StatelessWidget {
         title: Text(
           'Privacy Policy',
           style: GoogleFonts.poppins(fontSize: 21, fontWeight: FontWeight.w500),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: .start,
+          children: [
+            SizedBox(height: 10),
+            const InfoSection(),
+            SizedBox(height: 10),
+          ],
         ),
       ),
     );

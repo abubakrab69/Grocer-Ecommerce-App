@@ -174,33 +174,30 @@ class SettingScreen extends StatelessWidget {
   }) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
 
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        margin: .all(6),
-        decoration: BoxDecoration(
-          color: isdark ? Colors.grey[900] : Colors.grey[200],
-          borderRadius: .circular(10),
-        ),
-        child: ListTile(
-          leading: Icon(icon, color: AppTheme.light.primaryColor),
-          title: Text(
-            title,
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: isdark ? Colors.grey[200] : Colors.grey[800],
-            ),
+    return Container(
+      margin: .all(6),
+      decoration: BoxDecoration(
+        color: isdark ? Colors.grey[900] : Colors.grey[200],
+        borderRadius: .circular(10),
+      ),
+      child: ListTile(
+        leading: Icon(icon, color: AppTheme.light.primaryColor),
+        title: Text(
+          title,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
           ),
-          subtitle: Text(
-            subtitle,
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: isdark ? Colors.grey[200] : Colors.grey[800],
-            ),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16),
-          onTap: () {},
         ),
+        subtitle: Text(
+          subtitle,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color: isdark ? Colors.grey[200] : Colors.grey[800],
+          ),
+        ),
+        trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16),
+        onTap: onTap,
       ),
     );
   }
