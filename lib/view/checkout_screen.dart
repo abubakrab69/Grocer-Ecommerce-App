@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/widgets/adress_cart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
@@ -25,9 +26,29 @@ class CheckoutScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: .all(10),
-        child: Column(children: []),
+        padding: .all(12),
+        child: Column(
+          children: [
+            buildSectionTile(context, 'Shipping Adress'),
+            SizedBox(height: 10),
+            AdressCartCard(),
+            SizedBox(height: 10),
+            buildSectionTile(context, 'Payment method'),
+            SizedBox(height: 10),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget buildSectionTile(BuildContext context, String title) {
+    return Row(
+      children: [
+        Text(
+          title,
+          style: GoogleFonts.poppins(fontSize: 19, fontWeight: FontWeight.w500),
+        ),
+      ],
     );
   }
 }
