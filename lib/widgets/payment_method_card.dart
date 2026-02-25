@@ -1,10 +1,9 @@
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AdressCartCard extends StatelessWidget {
-  const AdressCartCard({super.key});
+class PaymentMethodCard extends StatelessWidget {
+  const PaymentMethodCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +15,16 @@ class AdressCartCard extends StatelessWidget {
         borderRadius: .circular(15),
       ),
       child: ListTile(
-        leading: Icon(Icons.location_pin, color: AppTheme.light.primaryColor),
+        leading: Icon(
+          Icons.payment_rounded,
+          color: AppTheme.light.primaryColor,
+        ),
         title: Text(
-          'Home',
+          'Visa ending in 4242',
           style: GoogleFonts.poppins(fontSize: 15, color: Colors.grey),
         ),
         subtitle: Text(
-          '123 Main street, APT 48, New york, NY 100001',
+          'Expires 12/24',
           style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey),
         ),
         trailing: IconButton(

@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/widgets/adress_cart_card.dart';
+import 'package:ecommerceapp/widgets/payment_method_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
@@ -34,6 +35,8 @@ class CheckoutScreen extends StatelessWidget {
             AdressCartCard(),
             SizedBox(height: 10),
             buildSectionTile(context, 'Payment method'),
+            SizedBox(height: 10),
+            PaymentMethodCard(),
             SizedBox(height: 10),
           ],
         ),
