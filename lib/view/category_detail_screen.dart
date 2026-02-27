@@ -1,8 +1,10 @@
+import 'package:ecommerceapp/controllers/cart_count_controller.dart';
 import 'package:ecommerceapp/models/product_model.dart';
 import 'package:ecommerceapp/utils/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,11 +12,13 @@ import 'package:share_plus/share_plus.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   final Product product;
-  const CategoryDetailScreen({super.key, required this.product});
+  CategoryDetailScreen({super.key, required this.product});
+  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
     final isdark = Theme.of(context).brightness == Brightness.dark;
+    CartCountController cartCountController = Get.put(CartCountController());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -46,17 +50,15 @@ class CategoryDetailScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  child: IconButton(
-                    onPressed: () {
-                      Get.snackbar(
-                        'Unimplementation error',
-                        'unimplementation',
-                        snackPosition: SnackPosition.BOTTOM,
-                      );
-                    },
-                    icon: Icon(
-                      Icons.favorite_outline_rounded,
-                      color: isdark ? Colors.white : Colors.black,
+                  child: Obx(
+                    () => IconButton(
+                      onPressed: () {},
+                      icon: isLiked
+                          ? Icon(
+                              Icons.favorite_outline_rounded,
+                              color: isdark ? Colors.white : Colors.black,
+                            )
+                          : Icon(Icons.favorite, color: Colors.red),
                     ),
                   ),
                 ),
