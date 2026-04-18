@@ -15,7 +15,7 @@ class CartCountController extends GetxController {
     }
   }
 
-  void likedCategory(Value) {
-    !isLiked.value;
+  void likedCategory() {
+    isLiked.value = !isLiked.value;
   }
 }

@@ -130,7 +130,7 @@ class buildCartItem extends StatelessWidget {
                   ),
                   Obx(
                     () => Text(
-                      cartCountController.cartcount.toString(),
+                      cartCountController.cartcount.value.toString(),
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         color: isdark ? Colors.white : Colors.black,

@@ -13,7 +13,6 @@ import 'package:share_plus/share_plus.dart';
 class CategoryDetailScreen extends StatelessWidget {
   final Product product;
   CategoryDetailScreen({super.key, required this.product});
-  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +51,10 @@ class CategoryDetailScreen extends StatelessWidget {
                 Positioned(
                   child: Obx(
                     () => IconButton(
-                      onPressed: () {},
-                      icon: isLiked
+                      onPressed: () {
+                        cartCountController.likedCategory();
+                      },
+                      icon: cartCountController.isLiked.value
                           ? Icon(
                               Icons.favorite_outline_rounded,
                               color: isdark ? Colors.white : Colors.black,
